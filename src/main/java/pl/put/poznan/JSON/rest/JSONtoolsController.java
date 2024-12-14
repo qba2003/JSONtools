@@ -15,15 +15,15 @@ public class JSONtoolsController {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+                              @RequestParam(value="JSONtext", defaultValue="upper,escape") String[] JSONtext) {
 
         // log the parameters
         logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+        logger.debug(Arrays.toString(JSONtext));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        JSONtools transformer = new JSONtools(transforms);
-        return transformer.transform(text);
+        JSONtools JSONtext = new JSONtools(JSONtext);
+        return JSONtext.transform(JSONtext);
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
