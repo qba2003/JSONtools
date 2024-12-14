@@ -14,3 +14,5 @@ replay_pid*
 .idea/
 *.iml
 target/classes
+target/maven-status
+target/javadoc-bundle-options
