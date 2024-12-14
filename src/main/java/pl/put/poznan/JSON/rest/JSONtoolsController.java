@@ -36,7 +36,7 @@ public class JSONtoolsController {
 
         // perform the transformation, you should run your logic here, below is just a silly example
         JSONtools JSON = new JSONtools(JSONtext);
-        return JSNO.JSONup(text);
+        return JSON.JSONup(text);
     }
 
 
