@@ -22,21 +22,21 @@ public class JSONtoolsController {
         logger.debug(Arrays.toString(JSONtext));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        JSONtools JSONtext = new JSONtools(JSONtext);
-        return JSONtext.transform(JSONtext);
+        JSONtools JSON = new JSONtools(JSONtext);
+        return JSON.JSONup(text);
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+                      @RequestBody String[] JSONtext) {
 
         // log the parameters
         logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+        logger.debug(Arrays.toString(JSONtext));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        JSONtools transformer = new JSONtools(transforms);
-        return transformer.transform(text);
+        JSONtools JSON = new JSONtools(JSONtext);
+        return JSNO.JSONup(text);
     }
 
 
