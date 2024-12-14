@@ -37,6 +37,9 @@
                             <goal>jar</goal>
                         </goals>
                         <phase>package</phase>
+                        <configuration>
+                            <classifier>standalone</classifier>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
