@@ -5,13 +5,13 @@ package pl.put.poznan.JSON.logic;
  */
 public class JSONtools {
 
-    private final String[] transforms;
+    private final String[] JSONtext;
 
-    public JSONtools(String[] transforms){
-        this.transforms = transforms;
+    public JSONtools(String[] JSONtext){
+        this.JSONtext = JSONtext;
     }
 
-    public String transform(String text){
+    public String JSONtext(String text){
         // of course, normally it would do something based on the transforms
         return text.toUpperCase();
     }
