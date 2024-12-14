@@ -23,12 +23,12 @@ jobs:
       run: mvn javadoc:javadoc --batch-mode
     - name: Commit and Push Javadoc
       run: |
-        git config user.name "qba2003"
-        git config user.email "qba2003@users.noreply.github.com"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
         git add target/site/apidocs
         if git diff --cached --quiet; then
           echo "No changes in Javadoc to commit."
         else
           git commit -m "Update Javadoc"
-          git push origin main
-          fi
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+        fi
