@@ -26,4 +26,3 @@ jobs:
         git add target
         git commit -m "Add generated JAR"
         git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
-        fi
