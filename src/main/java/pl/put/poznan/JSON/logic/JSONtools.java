@@ -11,7 +11,7 @@ public class JSONtools {
         this.JSONtext = JSONtext;
     }
 
-    public String JSONtext(String text){
+    public String JSONup(String text){
         // of course, normally it would do something based on the transforms
         return text.toUpperCase();
     }
