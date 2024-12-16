@@ -21,11 +21,11 @@ jobs:
     - name: Compile project to jar
       run: mvn compile package
  
-    - name: Copy jar
+    - name: Move jar
       run: |
         rm -rfv jars
         mkdir jars
-        cp -rfv target/*.jar jars/
+        mv -v target/*.jar jars/
         
     - name: Commit package changes
       run: |
@@ -40,10 +40,11 @@ jobs:
     - name: Build docs with Maven
       run: mvn clean javadoc:javadoc
 
-    - name: Copy docs
+    - name: Move docs
       run: |
         rm -rfv docs
-        cp -rfv target/site/apidocs/. docs
+        mkdir -p docs
+        mv -v target/site/apidocs/* docs/
     
     - name: Commit documentation changes
       run: |
