@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"pl.put.poznan.JSON.logic","l":"JSONtools"},{"p":"pl.put.poznan.JSON.app","l":"JSONtoolsApplication"},{"p":"pl.put.poznan.JSON.rest","l":"JSONtoolsController"}]
