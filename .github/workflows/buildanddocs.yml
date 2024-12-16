@@ -1,0 +1,53 @@
+name: Generate docs and package
+
+on: [push]
+
+jobs:
+  api-website:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v3
+
+    - name: Set up the Java JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+   
+    - name: Compile project to jar
+      run: mvn compile package
+ 
+    - name: Copy jar
+      run: |
+        rm -rfv jars
+        mkdir jars
+        cp -rfv target/*.jar jars/
+        
+    - name: Commit package changes
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'qba2003'
+          git config --global user.email 'jakub.pilarski.2@student.put.poznan.pl'
+          git add -A
+          git commit -m "Automated package update."
+          git push
+        fi
+
+    - name: Build docs with Maven
+      run: mvn clean javadoc:javadoc
+
+    - name: Copy docs
+      run: |
+        rm -rfv docs
+        cp -rfv target/site/apidocs/. docs
+    
+    - name: Commit documentation changes
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'qba2003'
+          git config --global user.email 'jakub.pilarski.2@student.put.poznan.pl'
+          git add -A
+          git commit -m "Automated docs update."
+          git push
+        fi
