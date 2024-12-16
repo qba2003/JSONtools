@@ -24,4 +24,21 @@ public class JSONtools {
             return "Invalid JSON format: " + e.getMessage();
         }
     }
+
+    public String filterJSON(String json, String[] propertyNames) {
+        try {
+            JSONObject originalJson = new JSONObject(json);
+            JSONObject simplifiedJson = new JSONObject();
+
+            for (String property : propertyNames) {
+                if (originalJson.has(property)) {
+                    simplifiedJson.put(property, originalJson.get(property));
+                }
+            }
+
+            return simplifiedJson.toString(4); // 4 for pretty-printing
+        } catch (Exception e) {
+            return "Invalid JSON format: " + e.getMessage();
+        }
+    }
 }
