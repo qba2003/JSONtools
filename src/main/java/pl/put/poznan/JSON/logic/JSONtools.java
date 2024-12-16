@@ -1,5 +1,5 @@
 package pl.put.poznan.JSON.logic;
-
+import org.json.JSONObject;
 /**
  * This is just an example to show that the logic should be outside the REST service. Should it?
  */
@@ -14,5 +14,14 @@ public class JSONtools {
     public String JSONup(String text){
         // of course, normally it would do something based on the transforms
         return text.toUpperCase();
+    }
+
+    public String prettyPrintJSON(String minifiedJson) {
+        try {
+            JSONObject json = new JSONObject(minifiedJson);
+            return json.toString(4); // 4 is the number of spaces for indentation
+        } catch (Exception e) {
+            return "Invalid JSON format: " + e.getMessage();
+        }
     }
 }
