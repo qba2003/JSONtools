@@ -1,0 +1,7 @@
+pl/put/poznan/JSON/logic/MinifyJSONDecorator.class
+pl/put/poznan/JSON/logic/FilterJSONDecorator.class
+pl/put/poznan/JSON/logic/BaseJSONTool.class
+pl/put/poznan/JSON/logic/JSONtools.class
+pl/put/poznan/JSON/logic/JsonToolInterface.class
+pl/put/poznan/JSON/rest/JSONtoolsController.class
+pl/put/poznan/JSON/app/JSONtoolsApplication.class
