@@ -16,12 +16,4 @@ public class JSONtools {
         return text.toUpperCase();
     }
 
-    public String prettyPrintJSON(String minifiedJson) {
-        try {
-            JSONObject json = new JSONObject(minifiedJson);
-            return json.toString(4); // 4 is the number of spaces for indentation
-        } catch (Exception e) {
-            return "Invalid JSON format: " + e.getMessage();
-        }
-    }
 }
