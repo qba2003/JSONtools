@@ -88,7 +88,7 @@ public class JSONtools {
             }
         }
 
-        return simplifiedJson.toString(4); // Возвращает отфильтрованный JSON (pretty-print)
+        return simplifiedJson.toString(4); 
     } catch (Exception e) {
         return "Invalid JSON format: " + e.getMessage();
         }
