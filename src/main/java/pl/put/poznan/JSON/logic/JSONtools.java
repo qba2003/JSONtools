@@ -47,27 +47,50 @@ public class JSONtools {
     }
 
     /**
-     * Filters a JSON object to retain only the specified properties.
-     *
-     * @param json          the input JSON string to be filtered.
-     * @param propertyNames an array of property names to retain in the JSON object.
-     * @return a pretty-printed JSON string containing only the specified properties,
-     *         or an error message if the input is not a valid JSON format.
-     */
+ * Filters a JSON string to include only the specified properties.
+ * If a property from the input list does not exist in the JSON, a message
+ * is printed to the console indicating the missing property.
+ *
+ * @param json the input JSON string to be processed.
+ * @param propertyNames an array of strings representing the keys (properties)
+ *                      to retain in the filtered JSON object.
+ * @return a formatted (pretty-printed) JSON string containing only the specified properties.
+ *         If none of the specified properties exist, an empty JSON object is returned.
+ * @throws org.json.JSONException if the input string is not a valid JSON format.
+ *
+ * <p>Example usage:</p>
+ * <pre>
+ * {@code
+ * String inputJson = "{\"name\":\"John\", \"age\":30}";
+ * String[] properties = {"name", "city"};
+ * JSONtools tools = new JSONtools(new String[]{});
+ * String result = tools.filterJSON(inputJson, properties);
+ * System.out.println(result);
+ * }
+ * </pre>
+ * <p>Console output if properties are missing:</p>
+ * <pre>
+ * {@code
+ * Property not found: city
+ * }
+ * </pre>
+ */
     public String filterJSON(String json, String[] propertyNames) {
-        try {
-            JSONObject originalJson = new JSONObject(json);
-            JSONObject simplifiedJson = new JSONObject();
+    try {
+        JSONObject originalJson = new JSONObject(json);
+        JSONObject simplifiedJson = new JSONObject();
 
-            for (String property : propertyNames) {
-                if (originalJson.has(property)) {
-                    simplifiedJson.put(property, originalJson.get(property));
-                }
+        for (String property : propertyNames) {
+            if (originalJson.has(property)) {
+                simplifiedJson.put(property, originalJson.get(property));
+            } else {
+                System.out.println("Property not found: " + property);
             }
+        }
 
-            return simplifiedJson.toString(4); // 4 for pretty-printing
-        } catch (Exception e) {
-            return "Invalid JSON format: " + e.getMessage();
+        return simplifiedJson.toString(4); // Возвращает отфильтрованный JSON (pretty-print)
+    } catch (Exception e) {
+        return "Invalid JSON format: " + e.getMessage();
         }
     }
 }
