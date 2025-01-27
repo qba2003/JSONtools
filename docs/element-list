@@ -1,3 +1,4 @@
-pl.put.poznan.JSON.app
-pl.put.poznan.JSON.logic
-pl.put.poznan.JSON.rest
+pl.put.poznan.transformer.app
+pl.put.poznan.transformer.logic
+pl.put.poznan.transformer.logic.decorators
+pl.put.poznan.transformer.rest

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"pl.put.poznan.JSON.app"},{"l":"pl.put.poznan.JSON.logic"},{"l":"pl.put.poznan.JSON.rest"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"pl.put.poznan.transformer.app"},{"l":"pl.put.poznan.transformer.logic"},{"l":"pl.put.poznan.transformer.logic.decorators"},{"l":"pl.put.poznan.transformer.rest"}]
