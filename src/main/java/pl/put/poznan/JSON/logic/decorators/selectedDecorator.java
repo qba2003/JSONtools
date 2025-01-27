@@ -26,7 +26,7 @@ public class selectedDecorator extends JSONDecorator {
         String[] splitted = attributes.split(",");
         StringBuilder left_attributes = new StringBuilder();
         StringBuilder jsonText = new StringBuilder("{");
-        StringBuilder fianl_atributes = new StringBuilder("Wybrane atrubyty: ");
+        StringBuilder fianl_atributes = new StringBuilder("Selected attributes ");
 
 
         try {
@@ -43,7 +43,7 @@ public class selectedDecorator extends JSONDecorator {
             }
 
             if(jsonText.toString().equals("{")) {
-                fianl_atributes = new StringBuilder("Żaden z podanych argumentów nie znajduje się w dnaych");
+                fianl_atributes = new StringBuilder("None of given attributes found in data");
                 jsonText = new StringBuilder();
             } else {
                 jsonText = new StringBuilder(jsonText.substring(0, jsonText.length() - 1) + '}');
@@ -53,7 +53,7 @@ public class selectedDecorator extends JSONDecorator {
                 if(left_attributes.length() > 0) {
                     left_attributes = new StringBuilder(left_attributes.substring(0, left_attributes.length() - 2));
 
-                    fianl_atributes.append(". Źle podano atrybuty: ").append(left_attributes).append('.');
+                    fianl_atributes.append(". Wrong attributes: ").append(left_attributes).append('.');
                 }
             }
             JsonNode final_json = mapper.readTree(jsonText.toString());

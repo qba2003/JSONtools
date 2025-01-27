@@ -28,7 +28,7 @@ public class JSONhome {
             System.out.println(jsonfull);
             model.addAttribute("input2", jsonfull);
         } catch (Exception e) {
-            model.addAttribute("input2", "Invalid JSON input!");
+            model.addAttribute("input2", "Invalid JSON input: " + e.getMessage());
         }
         return "resultFull";
     }
