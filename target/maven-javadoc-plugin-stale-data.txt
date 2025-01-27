@@ -26,10 +26,10 @@
 -version
 -windowtitle
 'JSONtools 1.5.0 API'
-pl.put.poznan.transformer.rest
-pl.put.poznan.transformer.app
-pl.put.poznan.transformer.logic.decorators
-pl.put.poznan.transformer.logic
+pl.put.poznan.JSON.rest
+pl.put.poznan.JSON.app
+pl.put.poznan.JSON.logic.decorators
+pl.put.poznan.JSON.logic
 /home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.3.3.RELEASE/spring-boot-starter-web-2.3.3.RELEASE.jar = 1597338367000
 /home/runner/.m2/repository/org/springframework/boot/spring-boot-starter/2.3.3.RELEASE/spring-boot-starter-2.3.3.RELEASE.jar = 1597338483000
 /home/runner/.m2/repository/org/springframework/boot/spring-boot/2.3.3.RELEASE/spring-boot-2.3.3.RELEASE.jar = 1597338372000
@@ -69,25 +69,25 @@ pl.put.poznan.transformer.logic
 /home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar = 1596392096000
 /home/runner/.m2/repository/org/json/json/20230227/json-20230227.jar = 1677505129000
 /home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.11.4/jackson-core-2.11.4.jar = 1607731869000
-/home/runner/work/JSONtools/JSONtools/src/main/java = 1737994076210
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/stylesheet.css = 1737994143946
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/package-search-index.js = 1737994143918
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/index-all.html = 1737994143923
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/jquery-ui.overrides.css = 1737994143979
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/constant-values.html = 1737994143855
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/package-search-index.zip = 1737994143920
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/script.js = 1737994143947
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/deprecated-list.html = 1737994143934
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/member-search-index.zip = 1737994143921
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/element-list = 1737994143829
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/overview-tree.html = 1737994143898
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/help-doc.html = 1737994143945
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/overview-summary.html = 1737994143942
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/type-search-index.js = 1737994143921
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allpackages-index.html = 1737994143930
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allclasses.html = 1737994143936
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/index.html = 1737994143941
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allclasses-index.html = 1737994143929
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/type-search-index.zip = 1737994143921
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/member-search-index.js = 1737994143921
-/home/runner/work/JSONtools/JSONtools/target/site/apidocs/search.js = 1737994143947
+/home/runner/work/JSONtools/JSONtools/src/main/java = 1737994943637
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/stylesheet.css = 1737995002663
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/package-search-index.js = 1737995002630
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/index-all.html = 1737995002634
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/jquery-ui.overrides.css = 1737995002698
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/constant-values.html = 1737995002572
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/package-search-index.zip = 1737995002632
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/script.js = 1737995002664
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/deprecated-list.html = 1737995002647
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/member-search-index.zip = 1737995002633
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/element-list = 1737995002541
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/overview-tree.html = 1737995002612
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/help-doc.html = 1737995002661
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/overview-summary.html = 1737995002658
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/type-search-index.js = 1737995002633
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allpackages-index.html = 1737995002641
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allclasses.html = 1737995002651
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/index.html = 1737995002656
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/allclasses-index.html = 1737995002639
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/type-search-index.zip = 1737995002633
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/member-search-index.js = 1737995002633
+/home/runner/work/JSONtools/JSONtools/target/site/apidocs/search.js = 1737995002665
