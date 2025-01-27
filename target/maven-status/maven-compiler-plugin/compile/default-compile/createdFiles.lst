@@ -1,0 +1,13 @@
+pl/put/poznan/transformer/app/JsonToolsApplication.class
+pl/put/poznan/transformer/logic/JsonTools.class
+pl/put/poznan/transformer/logic/decorators/showSelectedDecorator.class
+pl/put/poznan/transformer/logic/decorators/minifyDecorator.class
+pl/put/poznan/transformer/rest/JsonHome.class
+pl/put/poznan/transformer/logic/decorators/comparisonDecorator.class
+pl/put/poznan/transformer/logic/decorators/fullJsonDecorator.class
+pl/put/poznan/transformer/logic/decorators/deleteElementDecorator.class
+pl/put/poznan/transformer/logic/decorators/JsonDecorator.class
+pl/put/poznan/transformer/logic/Json.class
+pl/put/poznan/transformer/rest/ApiController.class
+pl/put/poznan/transformer/logic/JsonTransformer.class
+pl/put/poznan/transformer/logic/JsonImpl.class
