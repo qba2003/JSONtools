@@ -1,0 +1,13 @@
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/JsonTools.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/minifyDecorator.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/app/JsonToolsApplication.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/comparisonDecorator.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/Json.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/rest/ApiController.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/showSelectedDecorator.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/fullJsonDecorator.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/JsonDecorator.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/rest/JsonHome.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/JsonImpl.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/JsonTransformer.java
+/home/runner/work/JSONtools/JSONtools/src/main/java/pl/put/poznan/JSON/logic/decorators/deleteElementDecorator.java
