@@ -2,14 +2,11 @@ package pl.put.poznan.JSON.logic;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.put.poznan.JSON.logic.decorators.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class JsonTransformer {
 
     public String method;
     public String attributes;
-    private final Logger logger = LoggerFactory.getLogger(JsonTransformer.class);
 
     public JsonTransformer(String method, String attributes) {
         this.method = method;
@@ -63,8 +60,6 @@ public class JsonTransformer {
                 if(!result.isEmpty()) {
                     result = result.substring(0, result.length() - 1);
                 }
-            } else {
-                logger.debug("Requested method dosen't exist");
             }
             return result;
         } catch (Exception e) {

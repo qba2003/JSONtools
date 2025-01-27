@@ -13,11 +13,9 @@ import pl.put.poznan.JSON.logic.decorators.showSelectedDecorator;
 import pl.put.poznan.JSON.logic.decorators.fullJsonDecorator;
 import pl.put.poznan.JSON.logic.decorators.minifyDecorator;
 
-import org.slf4j.Logger;
 
 @Controller
 public class JsonHome {
-    private final Logger logger = LoggerFactory.getLogger(JsonHome.class);
 
     @RequestMapping("/")
     public String returnIndex() {
@@ -28,7 +26,6 @@ public class JsonHome {
     public String post1(@RequestParam("input2") String finalInput, Model model) {
         String[] arrStr = {};
         Json json = new JsonImpl(finalInput);
-        logger.info("Form request for full json");
 
         try {
             fullJsonDecorator fulljsondec = new fullJsonDecorator(json);
@@ -45,7 +42,6 @@ public class JsonHome {
     public String post2(@RequestParam("input1") String finalInput, Model model) {
         String[] arrStr = {};
         Json json = new JsonImpl(finalInput);
-        logger.info("Form request for minify");
 
         try {
             minifyDecorator mindec = new minifyDecorator(json);
@@ -63,7 +59,6 @@ public class JsonHome {
         String[] arrStr = {};
 
         Json json = new JsonImpl(finalInput);
-        logger.info("Form request for select");
 
         try {
             showSelectedDecorator show_selected = new showSelectedDecorator(json);
@@ -81,11 +76,8 @@ public class JsonHome {
     @PostMapping("/postingDeleted")
     public String post4(@RequestParam("DeletedJSON") String finalInput,
                         @RequestParam("DeleteAttributes") String attributes, Model model) {
-        String[] arrStr = {};
 
         Json json = new JsonImpl((finalInput));
-
-        logger.info("Form request for delete");
 
         try {
             deleteElementDecorator delete_elements = new deleteElementDecorator(json);
@@ -106,7 +98,6 @@ public class JsonHome {
     public String post5(@RequestParam("MainJSON") String mainInput, @RequestParam("SecJSON") String secInput, Model model) {
         String[] arrStr = {};
         Json json = new JsonImpl(mainInput);
-        logger.info("Form request for comparison");
         try {
             comparisonDecorator comparison = new comparisonDecorator(json);
             comparison.setAttributes(secInput);
