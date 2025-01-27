@@ -20,7 +20,6 @@ public class JSONhome {
 
     @PostMapping("/posting")
     public String post1(@RequestParam("input2") String finalInput, Model model) {
-        String[] arrStr = {};
         JSON json = new JSONimpl(finalInput);
 
         try {
@@ -36,7 +35,6 @@ public class JSONhome {
 
     @PostMapping("/postingMinify")
     public String post2(@RequestParam("input1") String finalInput, Model model) {
-        String[] arrStr = {};
         JSON json = new JSONimpl(finalInput);
 
         try {
@@ -52,7 +50,6 @@ public class JSONhome {
     @PostMapping("/postingSelected")
     public String post3(@RequestParam("SelectedJSON") String finalInput,
                         @RequestParam("SelectedAttributes") String attributes, Model model) {
-        String[] arrStr = {};
 
         JSON json = new JSONimpl(finalInput);
 
@@ -92,7 +89,6 @@ public class JSONhome {
 
     @PostMapping("/postingComparison")
     public String post5(@RequestParam("MainJSON") String mainInput, @RequestParam("SecJSON") String secInput, Model model) {
-        String[] arrStr = {};
         JSON json = new JSONimpl(mainInput);
         try {
             compareDecorator comparison = new compareDecorator(json);

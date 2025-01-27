@@ -24,9 +24,9 @@ public class selectedDecorator extends JSONDecorator {
         String[] final_output = new String[2];
 
         String[] splitted = attributes.split(",");
-        String left_attributes = "";
-        String jsonText = "{";
-        String fianl_atributes = "Wybrane atrubyty: ";
+        StringBuilder left_attributes = new StringBuilder();
+        StringBuilder jsonText = new StringBuilder("{");
+        StringBuilder fianl_atributes = new StringBuilder("Wybrane atrubyty: ");
 
 
         try {
@@ -34,32 +34,32 @@ public class selectedDecorator extends JSONDecorator {
             for (String s : splitted) {
                 JsonNode single_node = json.get(s.trim());
                 if (single_node != null) {
-                    fianl_atributes = fianl_atributes + s.trim() + ',';
-                    jsonText = jsonText + '"' + s.trim() + '"' + " : " + mapper.writeValueAsString(single_node) + ",";
+                    fianl_atributes.append(s.trim()).append(',');
+                    jsonText.append('"').append(s.trim()).append('"').append(" : ").append(mapper.writeValueAsString(single_node)).append(",");
                 } else {
-                    left_attributes = left_attributes + s.trim() + ", ";
+                    left_attributes.append(s.trim()).append(", ");
                 }
 
             }
 
-            if(jsonText.equals("{")) {
-                fianl_atributes = "Żaden z podanych argumentów nie znajduje się w dnaych";
-                jsonText = "";
+            if(jsonText.toString().equals("{")) {
+                fianl_atributes = new StringBuilder("Żaden z podanych argumentów nie znajduje się w dnaych");
+                jsonText = new StringBuilder();
             } else {
-                jsonText = jsonText.substring(0, jsonText.length() - 1) + '}';
+                jsonText = new StringBuilder(jsonText.substring(0, jsonText.length() - 1) + '}');
 
-                fianl_atributes = fianl_atributes.substring(0, fianl_atributes.length() - 1);
+                fianl_atributes = new StringBuilder(fianl_atributes.substring(0, fianl_atributes.length() - 1));
 
-                if(!left_attributes.isEmpty()) {
-                    left_attributes = left_attributes.substring(0, left_attributes.length() - 2);
+                if(left_attributes.length() > 0) {
+                    left_attributes = new StringBuilder(left_attributes.substring(0, left_attributes.length() - 2));
 
-                    fianl_atributes = fianl_atributes + ". Źle podano atrybuty: " + left_attributes + '.';
+                    fianl_atributes.append(". Źle podano atrybuty: ").append(left_attributes).append('.');
                 }
             }
-            JsonNode final_json = mapper.readTree(jsonText);
+            JsonNode final_json = mapper.readTree(jsonText.toString());
 
             final_output[0] = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(final_json);
-            final_output[1] = fianl_atributes;
+            final_output[1] = fianl_atributes.toString();
 
             return final_output;
         } catch (Exception e) {

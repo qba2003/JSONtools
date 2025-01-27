@@ -23,23 +23,23 @@ public class removeDecorator extends JSONDecorator {
     public String [] delete_element(String json_text,  String attributes) {
         ObjectMapper mapper = new ObjectMapper();
         String[] splitted = attributes.split(",");
-        String successful_remove = "Removed attributes: ";
+        StringBuilder successful_remove = new StringBuilder("Removed attributes: ");
         String[] final_output = new String[2];
         try {
             JsonNode json = mapper.readTree(json_text);
             for (String s : splitted) {
                 if(json.get(s.trim()) != null) {
                     ((ObjectNode) json).remove(s.trim());
-                    successful_remove = successful_remove + s.trim() + ", ";
+                    successful_remove.append(s.trim()).append(", ");
                 }
             }
             final_output[0] = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-            if(successful_remove.equals("Removed attributes: ")) {
+            if(successful_remove.toString().equals("Removed attributes: ")) {
 
                 final_output[1] = "None of given attributes were found in JSON file.";
             } else {
-                successful_remove = successful_remove.substring(0, successful_remove.length() - 2);
-                final_output[1] = successful_remove;
+                successful_remove = new StringBuilder(successful_remove.substring(0, successful_remove.length() - 2));
+                final_output[1] = successful_remove.toString();
             }
             return final_output;
         } catch (Exception e) {

@@ -14,7 +14,7 @@ public class APIcontroller {
                                           @RequestParam(name = "attributes", defaultValue = "") String attributes,
                                           @RequestBody String data) {
         try {
-            String data2=  data.substring(1, data.length() - 1);;
+            String data2=  data.substring(1, data.length() - 1);
             JSON json = new JSONimpl(data2);
             JSONtransformer transformer = new JSONtransformer(method, attributes);
 

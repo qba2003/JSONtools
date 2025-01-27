@@ -31,26 +31,11 @@ public class compareDecorator extends JSONDecorator {
 
             String main_json_string = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(main_json_tree);
             String second_json_string = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(second_json_tree);
-            Scanner main_scanner = new Scanner(main_json_string);
-            Scanner second_scanner = new Scanner(second_json_string);
-
-            String comparison_result = "";
-            while (main_scanner.hasNextLine()) {
-                String line = main_scanner.nextLine();
-                if(second_scanner.hasNextLine()) {
-                    if(line.equals(second_scanner.nextLine())) {
-                        comparison_result = comparison_result + " Same \n";
-                    } else {
-                        comparison_result = comparison_result + " Different \n";
-                    }
-                } else {
-                    comparison_result = comparison_result + " Different \n";
-                }
-            }
+            StringBuilder comparison_result = getStringBuilder(main_json_string, second_json_string);
 
             result[0]=main_json_string;
             result[1]=second_json_string;
-            result[2]=comparison_result;
+            result[2]= comparison_result.toString();
 
             return result;
         } catch (Exception e) {
@@ -58,5 +43,25 @@ public class compareDecorator extends JSONDecorator {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private static StringBuilder getStringBuilder(String main_json_string, String second_json_string) {
+        Scanner main_scanner = new Scanner(main_json_string);
+        Scanner second_scanner = new Scanner(second_json_string);
+
+        StringBuilder comparison_result = new StringBuilder();
+        while (main_scanner.hasNextLine()) {
+            String line = main_scanner.nextLine();
+            if(second_scanner.hasNextLine()) {
+                if(line.equals(second_scanner.nextLine())) {
+                    comparison_result.append(" Same \n");
+                } else {
+                    comparison_result.append(" Different \n");
+                }
+            } else {
+                comparison_result.append(" Different \n");
+            }
+        }
+        return comparison_result;
     }
 }
