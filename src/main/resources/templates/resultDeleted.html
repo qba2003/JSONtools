@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre id="deleted" th:text="${deleted}"></pre>
+<pre id="jsonOutput" th:text="${json}"></pre>
+<button onclick="copyToClipboard()">Copy JSON</button>
+
+<script>
+    const copyToClipboard = () => {
+        const jsonText = document.getElementById("jsonOutput").textContent;
+
+        navigator.clipboard.writeText(jsonText).then(function() {
+            alert("JSON copied to clipboard!");
+        }).catch(function(error) {
+            console.error("Error copying text to clipboard: ", error);
+        });
+    }
+</script>
+<form action ="/" method = "POST">
+    <input type ='submit' name ="Back" value = "Back"/>
+</form>
+</body>
+</html>
