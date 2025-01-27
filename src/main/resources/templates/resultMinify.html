@@ -2,11 +2,87 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Minify JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .json-panel {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1000px;
+            overflow-x: auto;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type='submit'] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type='submit']:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-<p> Value of minify: </p>
-<pre id="jsonOutput" th:text="${input1}"></pre>
+<h1>Minified JSON</h1>
+<div class="json-panel">
+    <pre id="jsonOutput" th:text="${input1}"></pre>
+</div>
 <button onclick="copyToClipboard()">Copy JSON</button>
 <script>
     const copyToClipboard = () => {
@@ -19,8 +95,8 @@
         });
     }
 </script>
-<form action ="/" method = "POST">
-    <input type ='submit' name ="Back" value = "Back"/>
+<form action="/" method="POST">
+    <input type="submit" name="Back" value="Back"/>
 </form>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package pl.put.poznan.JSON.rest;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +32,9 @@ public class JsonHome {
             System.out.println(jsonfull);
             model.addAttribute("input2", jsonfull);
         } catch (Exception e) {
-            model.addAttribute("input2", "Invalid JSON input: " + e.getMessage());
+            model.addAttribute("input2", "Invalid JSON input!");
         }
-        return "result";
+        return "resultFull";
     }
 
     @PostMapping("/postingMinify")

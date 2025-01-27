@@ -2,29 +2,133 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .json-panel {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    pre {
+      background-color: #282c34;
+      color: #fff;
+      padding: 15px;
+      border-radius: 4px;
+      font-size: 16px;
+      white-space: pre; /* Prevent wrapping */
+      word-wrap: normal; /* Prevent word wrapping */
+      margin-bottom: 20px; /* Adds margin between code blocks */
+    }
+
+    #mainOutput {
+      width: 45%; /* First block width */
+      margin-right: 10px;
+      overflow-x: auto; /* Add horizontal scrolling for long lines */
+    }
+
+    #compOutput {
+      width: 10%; /* Middle block width */
+      margin-right: 10px;
+      overflow-x: auto; /* Add horizontal scrolling for long lines */
+    }
+
+    #secOutput {
+      width: 45%; /* Third block width */
+      overflow-x: auto; /* Add horizontal scrolling for long lines */
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type='submit'] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type='submit']:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-<p> Comparison: </p>
-<pre style="display: inline-block;" id="mainOutput" th:text="${main}"></pre>
-<pre style="display: inline-block;" id="compOutput" th:text="${comp}"></pre>
-<pre style="display: inline-block;" id="secOutput" th:text="${sec}"></pre>
-
-<button onclick="copyToClipboard()">Copy JSON</button>
-
+<h1>Comparison</h1>
+<div class="json-panel">
+  <h2>Differences between two JSON files:</h2>
+  <div style="display: flex; justify-content: space-between; gap: 10px;">
+    <pre id="mainOutput" th:text="${main}"></pre>
+    <pre id="compOutput" th:text="${comp}"></pre>
+    <pre id="secOutput" th:text="${sec}"></pre>
+  </div>
+</div>
+<button onclick="copyToClipboard()">Copy result</button>
 <script>
   const copyToClipboard = () => {
-      const jsonText = document.getElementById("jsonOutput").textContent;
+    const jsonText = document.getElementById("mainOutput").textContent + "\n" +
+            document.getElementById("compOutput").textContent + "\n" +
+            document.getElementById("secOutput").textContent;
 
-      navigator.clipboard.writeText(jsonText).then(function() {
-          alert("JSON copied to clipboard!");
-      }).catch(function(error) {
-          console.error("Error copying text to clipboard: ", error);
-      });
+    navigator.clipboard.writeText(jsonText).then(function() {
+      alert("Result copied to clipboard!");
+    }).catch(function(error) {
+      console.error("Error copying text to clipboard: ", error);
+    });
   }
 </script>
-<form action ="/" method = "POST">
-  <input type ='submit' name ="Back" value = "Back"/>
+<form action="/" method="POST">
+  <input type="submit" name="Back" value="Back"/>
 </form>
 </body>
 </html>
