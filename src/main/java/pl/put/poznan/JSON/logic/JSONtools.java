@@ -1,10 +1,10 @@
 package pl.put.poznan.JSON.logic;
 
-public class JsonTools {
+public class JSONtools {
 
     private final String[] transforms;
 
-    public JsonTools(String[] transforms){
+    public JSONtools(String[] transforms){
         this.transforms = transforms;
     }
 

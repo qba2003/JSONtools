@@ -4,17 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
-import pl.put.poznan.JSON.logic.Json;
-import pl.put.poznan.JSON.logic.JsonImpl;
-import pl.put.poznan.JSON.logic.decorators.deleteElementDecorator;
-import pl.put.poznan.JSON.logic.decorators.comparisonDecorator;
-import pl.put.poznan.JSON.logic.decorators.showSelectedDecorator;
-import pl.put.poznan.JSON.logic.decorators.fullJsonDecorator;
-import pl.put.poznan.JSON.logic.decorators.minifyDecorator;
+import pl.put.poznan.JSON.logic.JSON;
+import pl.put.poznan.JSON.logic.JSONimpl;
+import pl.put.poznan.JSON.logic.decorators.*;
+import pl.put.poznan.JSON.logic.decorators.fullDecorator;
 
 
 @Controller
-public class JsonHome {
+public class JSONhome {
 
     @RequestMapping("/")
     public String returnIndex() {
@@ -24,10 +21,10 @@ public class JsonHome {
     @PostMapping("/posting")
     public String post1(@RequestParam("input2") String finalInput, Model model) {
         String[] arrStr = {};
-        Json json = new JsonImpl(finalInput);
+        JSON json = new JSONimpl(finalInput);
 
         try {
-            fullJsonDecorator fulljsondec = new fullJsonDecorator(json);
+            fullDecorator fulljsondec = new fullDecorator(json);
             String jsonfull = fulljsondec.getData();
             System.out.println(jsonfull);
             model.addAttribute("input2", jsonfull);
@@ -40,7 +37,7 @@ public class JsonHome {
     @PostMapping("/postingMinify")
     public String post2(@RequestParam("input1") String finalInput, Model model) {
         String[] arrStr = {};
-        Json json = new JsonImpl(finalInput);
+        JSON json = new JSONimpl(finalInput);
 
         try {
             minifyDecorator mindec = new minifyDecorator(json);
@@ -57,10 +54,10 @@ public class JsonHome {
                         @RequestParam("SelectedAttributes") String attributes, Model model) {
         String[] arrStr = {};
 
-        Json json = new JsonImpl(finalInput);
+        JSON json = new JSONimpl(finalInput);
 
         try {
-            showSelectedDecorator show_selected = new showSelectedDecorator(json);
+            selectedDecorator show_selected = new selectedDecorator(json);
             show_selected.setAttributes(attributes);
             String[] selected_json = show_selected.getDataSelected();
 
@@ -76,10 +73,10 @@ public class JsonHome {
     public String post4(@RequestParam("DeletedJSON") String finalInput,
                         @RequestParam("DeleteAttributes") String attributes, Model model) {
 
-        Json json = new JsonImpl((finalInput));
+        JSON json = new JSONimpl((finalInput));
 
         try {
-            deleteElementDecorator delete_elements = new deleteElementDecorator(json);
+            removeDecorator delete_elements = new removeDecorator(json);
             delete_elements.setAttributes(attributes);
             String[] deleted_json = delete_elements.getDataDeleted();
 
@@ -96,9 +93,9 @@ public class JsonHome {
     @PostMapping("/postingComparison")
     public String post5(@RequestParam("MainJSON") String mainInput, @RequestParam("SecJSON") String secInput, Model model) {
         String[] arrStr = {};
-        Json json = new JsonImpl(mainInput);
+        JSON json = new JSONimpl(mainInput);
         try {
-            comparisonDecorator comparison = new comparisonDecorator(json);
+            compareDecorator comparison = new compareDecorator(json);
             comparison.setAttributes(secInput);
             String[] json_arr = comparison.getDataComparison();
 

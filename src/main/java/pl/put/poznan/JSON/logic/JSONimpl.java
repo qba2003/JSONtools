@@ -1,9 +1,9 @@
 package pl.put.poznan.JSON.logic;
 
-public class JsonImpl implements Json {
+public class JSONimpl implements JSON {
     private final String data;
 
-    public JsonImpl(String data) {
+    public JSONimpl(String data) {
         this.data = data;
     }
 

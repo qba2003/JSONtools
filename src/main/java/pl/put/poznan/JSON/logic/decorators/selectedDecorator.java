@@ -2,12 +2,12 @@ package pl.put.poznan.JSON.logic.decorators;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.put.poznan.JSON.logic.Json;
+import pl.put.poznan.JSON.logic.JSON;
 
-public class showSelectedDecorator extends JsonDecorator {
+public class selectedDecorator extends JSONDecorator {
 
     private String attributes;
-    public showSelectedDecorator(Json text) {
+    public selectedDecorator(JSON text) {
         super(text);
     }
 

@@ -3,13 +3,13 @@ package pl.put.poznan.JSON.logic.decorators;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import pl.put.poznan.JSON.logic.Json;
+import pl.put.poznan.JSON.logic.JSON;
 
-public class deleteElementDecorator extends JsonDecorator {
+public class removeDecorator extends JSONDecorator {
 
     private String attributes;
 
-    public deleteElementDecorator(Json text){
+    public removeDecorator(JSON text){
         super(text);
     }
     public void setAttributes(String attributes) {

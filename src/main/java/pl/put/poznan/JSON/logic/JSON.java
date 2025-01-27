@@ -1,5 +1,5 @@
 package pl.put.poznan.JSON.logic;
 
-public interface Json {
+public interface JSON {
     public String getData();
 }

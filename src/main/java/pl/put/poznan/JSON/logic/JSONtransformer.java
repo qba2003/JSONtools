@@ -3,24 +3,24 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.put.poznan.JSON.logic.decorators.*;
 
-public class JsonTransformer {
+public class JSONtransformer {
 
     public String method;
     public String attributes;
 
-    public JsonTransformer(String method, String attributes) {
+    public JSONtransformer(String method, String attributes) {
         this.method = method;
         this.attributes = attributes;
     }
 
-    public String transform(Json data) {
+    public String transform(JSON data) {
         ObjectMapper mapper = new ObjectMapper();
         try {
 
             String result = "";
             if(method.equals("full")) {
 
-                fullJsonDecorator full_dec= new fullJsonDecorator(data);
+                fullDecorator full_dec= new fullDecorator(data);
                 result = full_dec.getData();
             }
             else if(method.equals("minify")) {
@@ -28,13 +28,13 @@ public class JsonTransformer {
                 result = min_dec.getData();
             }
             else if(method.equals("delete")) {
-                deleteElementDecorator del_dec = new deleteElementDecorator(data);
+                removeDecorator del_dec = new removeDecorator(data);
                 del_dec.setAttributes(attributes);
 
                 result = del_dec.getDataDeleted()[0];
             }
             else if(method.equals("select")) {
-                showSelectedDecorator sel_dec = new showSelectedDecorator(data);
+                selectedDecorator sel_dec = new selectedDecorator(data);
                 sel_dec.setAttributes(attributes);
 
                 result =  sel_dec.getDataSelected()[0];
@@ -43,9 +43,9 @@ public class JsonTransformer {
                 JsonNode entry_json = mapper.readTree(data.getData());
                 String main_json = mapper.writeValueAsString(entry_json.get("main"));
                 String sec_json = mapper.writeValueAsString(entry_json.get("second"));
-                Json main = new JsonImpl(main_json);
+                JSON main = new JSONimpl(main_json);
 
-                comparisonDecorator comp_dec = new comparisonDecorator(main);
+                compareDecorator comp_dec = new compareDecorator(main);
                 comp_dec.setAttributes(sec_json);
 
                 String entry_lines = comp_dec.getDataComparison()[2];

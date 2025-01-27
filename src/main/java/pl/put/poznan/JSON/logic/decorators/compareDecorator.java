@@ -2,14 +2,14 @@ package pl.put.poznan.JSON.logic.decorators;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.put.poznan.JSON.logic.Json;
+import pl.put.poznan.JSON.logic.JSON;
 
 import java.util.Scanner;
 
-public class comparisonDecorator extends JsonDecorator{
+public class compareDecorator extends JSONDecorator {
     
     private String attributes;
-    public comparisonDecorator(Json text){
+    public compareDecorator(JSON text){
         super(text);
     }
     public void setAttributes(String attributes) {

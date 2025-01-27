@@ -1,11 +1,11 @@
 package pl.put.poznan.JSON.logic.decorators;
 
-import pl.put.poznan.JSON.logic.Json;
+import pl.put.poznan.JSON.logic.JSON;
 
-public abstract class JsonDecorator implements Json {
-    private final Json text;
+public abstract class JSONDecorator implements JSON {
+    private final JSON text;
 
-    public JsonDecorator(Json text) {
+    public JSONDecorator(JSON text) {
         this.text = text;
     }
 

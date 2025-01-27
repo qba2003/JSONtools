@@ -1,12 +1,12 @@
 package pl.put.poznan.JSON.rest;
 
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.JSON.logic.Json;
-import pl.put.poznan.JSON.logic.JsonImpl;
-import pl.put.poznan.JSON.logic.JsonTransformer;
+import pl.put.poznan.JSON.logic.JSON;
+import pl.put.poznan.JSON.logic.JSONimpl;
+import pl.put.poznan.JSON.logic.JSONtransformer;
 
 @RestController
-public class ApiController {
+public class APIcontroller {
 
 
     @RequestMapping(method = RequestMethod.POST,value = "/request")
@@ -15,8 +15,8 @@ public class ApiController {
                                           @RequestBody String data) {
         try {
             String data2=  data.substring(1, data.length() - 1);;
-            Json json = new JsonImpl(data2);
-            JsonTransformer transformer = new JsonTransformer(method, attributes);
+            JSON json = new JSONimpl(data2);
+            JSONtransformer transformer = new JSONtransformer(method, attributes);
 
             System.out.println(transformer.transform(json));
             return transformer.transform(json);
