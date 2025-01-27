@@ -15,7 +15,7 @@ import pl.put.poznan.JSON.logic.JSON;
  *
  * <p>Example usage:</p>
  * <pre>
- * JSON json = new BasicJSON("{\n  \"key\": \"value\"\n}");
+ * JSON json = new JSONimpl("{\n  \"key\": \"value\"\n}");
  * JSON minifiedJson = new minifyDecorator(json);
  * System.out.println(minifiedJson.getData()); // Output: {"key":"value"}
  * </pre>
