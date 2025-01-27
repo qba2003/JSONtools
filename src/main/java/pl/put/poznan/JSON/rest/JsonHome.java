@@ -15,32 +15,15 @@ import pl.put.poznan.JSON.logic.decorators.minifyDecorator;
 
 import org.slf4j.Logger;
 
-/**
- * Kontroler obsługujący żądania HTTP związane z operacjami na danych JSON.
- * Oferuje funkcjonalności takie jak: pełne przetwarzanie JSON, minimalizacja, wybór,
- * usuwanie atrybutów oraz porównywanie dwóch JSON-ów.
- */
 @Controller
 public class JsonHome {
     private final Logger logger = LoggerFactory.getLogger(JsonHome.class);
 
-    /**
-     * Metoda obsługująca żądanie GET na ścieżkę główną.
-     *
-     * @return Nazwa widoku "home".
-     */
     @RequestMapping("/")
     public String returnIndex() {
         return "home";
     }
 
-    /**
-     * Obsługuje żądanie POST do przetworzenia pełnego JSON.
-     *
-     * @param finalInput JSON wejściowy jako ciąg znaków.
-     * @param model      Model do przekazywania danych do widoku.
-     * @return Nazwa widoku "result".
-     */
     @PostMapping("/posting")
     public String post1(@RequestParam("input2") String finalInput, Model model) {
         String[] arrStr = {};
@@ -58,13 +41,6 @@ public class JsonHome {
         return "result";
     }
 
-    /**
-     * Obsługuje żądanie POST do minimalizacji JSON.
-     *
-     * @param finalInput JSON wejściowy.
-     * @param model      Model do przekazywania danych do widoku.
-     * @return Nazwa widoku "resultMinify".
-     */
     @PostMapping("/postingMinify")
     public String post2(@RequestParam("input1") String finalInput, Model model) {
         String[] arrStr = {};
@@ -81,20 +57,11 @@ public class JsonHome {
         return "resultMinify";
     }
 
-    /**
-     * Obsługuje żądanie POST do wybrania określonych atrybutów JSON.
-     *
-     * @param finalInput JSON wejściowy.
-     * @param attributes Lista atrybutów do wybrania.
-     * @param model      Model do przekazywania danych do widoku.
-     * @return Nazwa widoku "resultSelected".
-     */
     @PostMapping("/postingSelected")
     public String post3(@RequestParam("SelectedJSON") String finalInput,
                         @RequestParam("SelectedAttributes") String attributes, Model model) {
         String[] arrStr = {};
 
-//        JsonTools tools = new JsonTools(arrStr);
         Json json = new JsonImpl(finalInput);
         logger.info("Form request for select");
 
@@ -111,14 +78,6 @@ public class JsonHome {
         return "resultSelected";
     }
 
-    /**
-     * Obsługuje żądanie POST do usuwania określonych atrybutów JSON.
-     *
-     * @param finalInput JSON wejściowy.
-     * @param attributes Lista atrybutów do usunięcia.
-     * @param model      Model do przekazywania danych do widoku.
-     * @return Nazwa widoku "resultDeleted".
-     */
     @PostMapping("/postingDeleted")
     public String post4(@RequestParam("DeletedJSON") String finalInput,
                         @RequestParam("DeleteAttributes") String attributes, Model model) {
@@ -142,14 +101,7 @@ public class JsonHome {
         return "resultDeleted";
     }
 
-    /**
-     * Obsługuje żądanie POST do porównywania dwóch JSON-ów.
-     *
-     * @param mainInput JSON główny.
-     * @param secInput  JSON do porównania.
-     * @param model     Model do przekazywania danych do widoku.
-     * @return Nazwa widoku "resultComparison".
-     */
+
     @PostMapping("/postingComparison")
     public String post5(@RequestParam("MainJSON") String mainInput, @RequestParam("SecJSON") String secInput, Model model) {
         String[] arrStr = {};
