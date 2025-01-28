@@ -18,7 +18,7 @@ public class JSONhome {
         return "home";
     }
 
-    @PostMapping("/posting")
+    @PostMapping("/postingFull")
     public String post1(@RequestParam("input2") String finalInput, Model model) {
         JSON json = new JSONimpl(finalInput);
 

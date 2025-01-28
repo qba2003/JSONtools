@@ -26,7 +26,7 @@ public class selectedDecorator extends JSONDecorator {
         String[] splitted = attributes.split(",");
         StringBuilder left_attributes = new StringBuilder();
         StringBuilder jsonText = new StringBuilder("{");
-        StringBuilder fianl_atributes = new StringBuilder("Selected attributes ");
+        StringBuilder fianl_atributes = new StringBuilder("Selected attributes: ");
 
 
         try {
