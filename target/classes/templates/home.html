@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        form {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Przerwa pomiędzy elementami */
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 0; /* Usuń margines dolny */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box; /* Uwzględnia padding i obramowanie przy określaniu szerokości */
+        }
+
+        input[type="submit"] {
+            align-self: flex-start; /* Ustawienie przycisku na lewo */
+            background-color: #4CAF50; /* Zielone tło */
+            color: white; /* Biały tekst */
+            border: none; /* Brak obramowania */
+            padding: 10px 20px; /* Wewnętrzne marginesy */
+            border-radius: 5px; /* Zaokrąglone rogi */
+            cursor: pointer; /* Zmiana kursora na wskazujący */
+            font-size: 16px; /* Rozmiar czcionki */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Zielony odcień przy najechaniu */
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container > form:nth-child(5) {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+<h1>JSON Tools</h1>
+<div class="form-container">
+    <form action="/postingFull" method="post" id="form">
+        <label for="inputFull">Minified to full:</label>
+        <textarea id="inputFull" name="input2" placeholder="Enter minified JSON"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="/postingMinify" method="post" id="form2">
+        <label for="inputMinify">Full to minified JSON:</label>
+        <textarea id="inputMinify" name="input1" placeholder="Enter full JSON"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="/postingSelected" method="post" id="selected">
+        <label for="inputSelectedJSON">Show only selected attributes:</label>
+        <textarea id="inputSelectedJSON" name="SelectedJSON" placeholder="Enter your JSON"></textarea>
+        <textarea id="inputSelectedAttributes" name="SelectedAttributes" placeholder="Enter attributes to select, separated by comma"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="/postingDeleted" method="post" id="deleted">
+        <label for="inputDeletedJSON">Remove selected attributes:</label>
+        <textarea id="inputDeletedJSON" name="DeletedJSON" placeholder="Enter your JSON"></textarea>
+        <textarea id="inputDeleteAttributes" name="DeleteAttributes" placeholder="Enter attributes to remove, separated by comma"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Compare -->
+    <form action="/postingComparison" method="post" id="comparison">
+        <label for="inputMainJSON">Compare two JSON:</label>
+        <textarea id="inputMainJSON" name="MainJSON" placeholder="Enter first JSON"></textarea>
+        <textarea id="inputSecJSON" name="SecJSON" placeholder="Enter second JSON"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
